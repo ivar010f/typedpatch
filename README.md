@@ -1,4 +1,14 @@
 # typedpatch
+
+[![CI](https://github.com/ivar010f/typedpatch/actions/workflows/ci.yml/badge.svg)](https://github.com/ivar010f/typedpatch/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/typedpatch)](https://pypi.org/project/typedpatch/)
+[![Python](https://img.shields.io/pypi/pyversions/typedpatch)](https://pypi.org/project/typedpatch/)
+[![License](https://img.shields.io/github/license/ivar010f/typedpatch)](LICENSE)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ty](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ty/main/assets/badge/v0.json)](https://github.com/astral-sh/ty)
+[![Pyrefly](https://img.shields.io/badge/types-Pyrefly-blue)](https://github.com/facebook/pyrefly)
+
 Proper typing for `pytest` `monkeypatch` and `unittest.mock`
 
 Patch targets in tests are usually dotted strings,
