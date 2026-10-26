@@ -1,0 +1,14 @@
+# IntelliJ IDE files
+*.iml
+.idea
+# Python
+__pycache__
+.venv
+.venv_uv
+# Python coverage
+.coverage*
+coverage_html_report/
+coverage.xml
+# Python build outputs
+dist/
+*.egg-info/

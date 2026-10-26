@@ -1,0 +1,85 @@
+[build-system]
+requires = ["uv_build>=0.7,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
+[project]
+requires-python = ">=3.12"
+name = "typedpatch"
+version = "0.1.0"
+description = "Proper typing for monkeypatch and unittest.mock"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["typing", "pytest", "monkeypatch", "mock", "type hints"]
+classifiers = [
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pytest>=8",
+]
+
+[project.entry-points.pytest11]
+typedpatch = "typedpatch.plugin"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.7",
+    "pyrefly>=1.4.0",
+    "ty>=0.0.92",
+]
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --strict-markers"
+doctest_optionflags = ["ELLIPSIS"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+extend-select = ["ALL"]
+ignore = [
+    #### modules
+    # ANN: flake8-annotations
+    "ANN",
+    # ARG: flake8-unused-arguments
+    "ARG",
+    # COM: flake8-commas
+    "COM", # covered by formatter
+    # CPY: flake8-copyright
+    "CPY",
+
+    #### specific rules
+    # D: pydocstyle
+    # D1: undocumented-*
+    "D105",
+    "D106",
+    "D107",
+    "D203", # incompatible; ignore
+    "D213", # incompatible; ignore
+    # E: pycodestyle
+    "E501", # covered by formatter
+    # S: flake8-bandit
+    "S101", # assert; used for type narrowing and in tests
+    # TID: flake8-tidy-imports (TID251 banned-api is enabled, see below)
+    "TID252", # relative imports; covered by formatter
+]
+
+[tool.pyrefly]
+preset = "strict"
+min-severity = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
